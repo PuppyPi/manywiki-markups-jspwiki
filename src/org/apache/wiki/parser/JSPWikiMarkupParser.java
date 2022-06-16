@@ -36,7 +36,7 @@ import org.apache.wiki.api.core.Context;
 import org.apache.wiki.api.core.ContextEnum;
 import org.apache.wiki.api.core.Page;
 import org.apache.wiki.api.exceptions.PluginException;
-import org.apache.wiki.api.plugin.Plugin;
+import org.apache.wiki.api.plugin.PluginCoreResources;
 import org.apache.wiki.api.spi.Wiki;
 import org.apache.wiki.attachment.AttachmentManager;
 import org.apache.wiki.auth.AuthorizationManager;
@@ -54,7 +54,6 @@ import org.jdom2.Element;
 import org.jdom2.IllegalDataException;
 import org.jdom2.ProcessingInstruction;
 import org.jdom2.Verifier;
-
 import javax.xml.transform.Result;
 import java.io.IOException;
 import java.io.Reader;
@@ -1102,7 +1101,7 @@ public class JSPWikiMarkupParser extends MarkupParser {
                 log.info( m_context.getRealPage().getWiki() + " : " + m_context.getRealPage().getName() + " - Failed to insert plugin: " + e.getMessage() );
                 //log.info( "Root cause:",e.getRootThrowable() );
                 if( !m_wysiwygEditorMode ) {
-                    final ResourceBundle rbPlugin = Preferences.getBundle( m_context, Plugin.CORE_PLUGINS_RESOURCEBUNDLE );
+                    final ResourceBundle rbPlugin = Preferences.getBundle( m_context, PluginCoreResources.CORE_PLUGINS_RESOURCEBUNDLE );
                     return addElement( makeError( MessageFormat.format( rbPlugin.getString( "plugin.error.insertionfailed" ),
                     		                                            m_context.getRealPage().getWiki(),
                     		                                            m_context.getRealPage().getName(),
