@@ -43,7 +43,6 @@ import org.apache.wiki.auth.UserManager;
 import org.apache.wiki.auth.WikiSecurityException;
 import org.apache.wiki.auth.acl.AclManager;
 import org.apache.wiki.i18n.InternationalizationManager;
-import org.apache.wiki.plugin.PluginCoreResources;
 import org.apache.wiki.preferences.Preferences;
 import org.apache.wiki.util.TextUtil;
 import org.apache.wiki.util.XmlUtil;
@@ -1101,7 +1100,7 @@ public class JSPWikiMarkupParser extends MarkupParser {
                 log.info( m_context.getRealPage().getWiki() + " : " + m_context.getRealPage().getName() + " - Failed to insert plugin: " + e.getMessage() );
                 //log.info( "Root cause:",e.getRootThrowable() );
                 if( !m_wysiwygEditorMode ) {
-                    final ResourceBundle rbPlugin = Preferences.getBundle( m_context, PluginCoreResources.CORE_PLUGINS_RESOURCEBUNDLE );
+                    final ResourceBundle rbPlugin = Preferences.getBundle( m_context, InternationalizationManager.CORE_PLUGINS_RESOURCEBUNDLE );
                     return addElement( makeError( MessageFormat.format( rbPlugin.getString( "plugin.error.insertionfailed" ),
                     		                                            m_context.getRealPage().getWiki(),
                     		                                            m_context.getRealPage().getName(),
